@@ -28,6 +28,22 @@ function removeDoctor(event) {
   fixIndex();
 }
 
+// ordenar data por la funcion pasada
+function sortByFn(data, fn) {
+  for (let i = 0; i < data.length; i++) {
+    for (let j = i + 1; j < data.length; j++) {
+      if (fn(data[i], data[j]) > 0) {
+        [data[i], data[j]] = [data[j], data[i]];
+      } else if (fn(data[j], data[i]) < 0) {
+        [data[j], data[i]] = [data[i], data[j]];
+      }
+    }
+  }
+}
+
+console.log('Ordernando doctores por años de experiencia');
+sortByFn(doctors, (a, b) => b.experience - a.experience);
+
 window.removeDoctor = removeDoctor;
 
 function generateDoctorCard(doctor, index) {
