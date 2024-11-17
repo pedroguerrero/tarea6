@@ -22,7 +22,7 @@ searchText.addEventListener('keyup', (event) => {
 });
 ```
 
-Por cada tecla presionada por el usuario se utiliza el metodo filter de los arreglos el cual tiene complejidad O(n) (lineal)
+Por cada tecla presionada por el usuario se utiliza el metodo filter de los arreglos el cual tiene complejidad **O(n)** (lineal)
 
 Fragmento de codigo para ordenar datos
 
@@ -40,7 +40,7 @@ function sortByFn(data, fn) {
 }
 ```
 
-Funcion utilizada para implementar el ordenamiento de los datos, en este caso se uso el algoritmo Bubble sort para ordenar los datos el cual tiene complejidad de O(n^2)
+Funcion utilizada para implementar el ordenamiento de los datos, en este caso se uso el algoritmo **Bubble sort** para ordenar los datos el cual tiene complejidad de **O(n^2)**
 
 Ejemplo de uso
 
@@ -51,3 +51,61 @@ console.log(datos);
 ```
 
 La ejecucion de ese fragmento de codigo nos daria [5, 4, 3, 2, 1] que seria un ordenamiento de mayor a menor
+
+## Clonacion del objeto de medicos
+
+Para clonar el objeto de medicos se realizo de la siguiente manera
+
+```
+const clonedDocs = [...doctors.map((doc) => ({ ...doc }))];
+```
+
+Debido a que los datos del arreglo de doctores son del tipo referenciados (objetos) se debe utilizar el operador **...** para extraer la data
+
+## Merge del objeto de medicos
+
+Para realizar el merge del arreglo de medicos con el arreglo de servicios se realizo de la siguiente manera
+
+```
+const mergedData = [...doctors, ...services];
+```
+
+## Recorrer arreglo mergeado de doctores y servicios
+
+Para recorrer y mostrar el objeto mergeado de doctores y servicios se realizo de la siguiente manera
+
+```
+for (const merged of mergedData) {
+  console.log('Datos mergeados', merged);
+}
+
+```
+
+## Estructuras de datos utilizados
+
+### Arreglos
+
+Se utilizaron los arreglos de JavaScript para almacenar informacion de doctores, pacientes y citas reservadas.
+
+### Pilas (Stack)
+
+Se implemento una pila con la siguiente clase, la cual tiene los siguientes metodos: **push**, **pop** y **isEmpty**
+
+```
+export class Stack {
+  data = [];
+
+  push(item) {
+    this.data.push(item);
+  }
+
+  pop() {
+    return this.data.pop();
+  }
+
+  isEmpty() {
+    return this.data.length === 0;
+  }
+}
+
+```
