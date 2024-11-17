@@ -48,6 +48,52 @@
     </div>
   </div>
 
+  <div class="modal fade" tabindex="-1" id="agregar-doctor-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Agregar Doctor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="nombre-doctor" class="form-label">Nombre</label>
+            <input data-field="name" data-regex="^.{5,}$" type="text" id="nombre-doctor" class="form-control"
+              placeholder="Nombre">
+            <span class="text-danger"></span>
+          </div>
+
+          <div class="mb-3">
+            <label for="descripcion-doctor" class="form-label">Descripcion</label>
+            <input data-field="description" data-regex="^.{5,}$" type="text" id="descripcion-doctor"
+              class="form-control" placeholder="Descripcion">
+            <span class="text-danger"></span>
+          </div>
+
+          <div class="mb-3">
+            <label for="experiencia-doctor" class="form-label">Experiencia</label>
+            <input data-field="experience" data-regex="^[0-9]{1,}$" type="number" id="experiencia-doctor"
+              class="form-control" placeholder="Experiencia">
+            <span class="text-danger"></span>
+          </div>
+
+          <div class="mb-3">
+            <label for="disponibilidad-doctor" class="form-label">Disponible</label>
+            <select data-field="available" id="disponibilidad-doctor" class="form-select"
+              aria-label="Select disponibilidad">
+              <option value="disponible">Disponible</option>
+              <option value="noDisponible">No Disponible</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btn-agregar-doctor">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -65,6 +111,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="equipo-medico.html">Equipo médico</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="citas-pacientes.html">Citas Pacientes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contacto.html">Contacto</a>
@@ -116,6 +165,12 @@
               <input type="text" class="form-control search-box" placeholder="Filtrar medicos" aria-label="Search"
                 aria-describedby="addon-wrapping">
             </div>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-md-6 offset-md-6">
+            <button type="button" class="btn btn-primary float-end" id="modal-doctor">Agregar Doctor</button>
           </div>
         </div>
 

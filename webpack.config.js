@@ -12,6 +12,7 @@ module.exports = {
     home: './src/js/home.js',
     'equipo-medico': './src/js/equipo-medico.js',
     contacto: './src/js/contacto.js',
+    citasPacientes: './src/js/citas-pacientes.js',
   },
   output: {
     filename: 'assets/js/[name].bundle.js',
@@ -37,6 +38,11 @@ module.exports = {
       filename: 'equipo-medico.html',
       template: './src/equipo-medico.html',
       chunks: ['main', 'equipo-medico'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'citas-pacientes.html',
+      template: './src/citas-pacientes.html',
+      chunks: ['main', 'citasPacientes'],
     }),
     new CopyPlugin({
       patterns: [{ from: 'src/img', to: 'img' }],
