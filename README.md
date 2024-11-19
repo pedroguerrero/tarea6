@@ -109,3 +109,32 @@ export class Stack {
 }
 
 ```
+
+### Colas
+
+Se implemento una cola con la siguiente clase, la cual tiene los siguientes metodos: **enqueue**, **dequeue**, **isEmpty** y **length**
+
+```
+export class Queue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(item) {
+    this.queue.push(item);
+  }
+
+  dequeue() {
+    return this.queue.shift();
+  }
+
+  isEmpty() {
+    return this.queue.length === 0;
+  }
+
+  length() {
+    return this.queue.length;
+  }
+}
+
+```
