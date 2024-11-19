@@ -164,35 +164,33 @@ btnAddDoctor.addEventListener('click', () => {
     }
   }
 
-  if (!hasError) {
-    const modalInputs = document.querySelectorAll(
-      '#agregar-doctor-modal input'
-    );
-
-    const doctor = {};
-
-    modalInputs.forEach((input) => {
-      const field = input.getAttribute('data-field');
-      doctor[field] = input.value;
-    });
-
-    const available = document.querySelector('#disponibilidad-doctor').value;
-
-    console.log(available);
-
-    doctor.experience = Number(doctor.experience);
-    doctor.available = available === 'disponible';
-    doctor.image = 'img/doc-1.png';
-
-    console.log('Doctor a agregar', doctor);
-
-    doctors.push(doctor);
-
-    document.querySelector('.doctors-row').innerHTML += generateDoctorCard(
-      doctor,
-      doctors.length - 1
-    );
-
-    doctorModal.hide();
+  if (hasError) {
+    return;
   }
+
+  const doctor = {};
+
+  modalInputs.forEach((input) => {
+    const field = input.getAttribute('data-field');
+    doctor[field] = input.value;
+  });
+
+  const available = document.querySelector('#disponibilidad-doctor').value;
+
+  console.log(available);
+
+  doctor.experience = Number(doctor.experience);
+  doctor.available = available === 'disponible';
+  doctor.image = 'img/doc-1.png';
+
+  console.log('Doctor a agregar', doctor);
+
+  doctors.push(doctor);
+
+  document.querySelector('.doctors-row').innerHTML += generateDoctorCard(
+    doctor,
+    doctors.length - 1
+  );
+
+  doctorModal.hide();
 });
